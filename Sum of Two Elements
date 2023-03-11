@@ -1,1 +1,17 @@
+nums = [4, 8, 14, 2, 7]   #given array
+target = 12         
 
+
+def two_sum(nums, target):
+    if len(nums) <= 1:  #we need two numbers to run this, so if the length of the numbers is less than one it will not work
+        return False
+
+    aux_dict = {}                     #create an empty dictionary
+    for i in range(len(nums)):        #create a loop for our targeted dictionary 
+        if nums[i] in aux_dict:       # if the number is in the dictionary itwill return
+            return [aux_dict[nums[i]], i]
+        else:
+            aux_dict[target - nums[i]] = i
+
+
+print(two_sum(nums, target))
